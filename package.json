@@ -2,10 +2,24 @@
   "name": "bsocial",
   "version": "1.0.0",
   "description": "Social Network",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
+    "start": "node server.js",
+    "server": "nodemon -e ejs,js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Bruno Agatao",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "hapi": "^17.5.4",
+    "hapi-routes": "^5.0.0",
+    "inert": "^5.1.0",
+    "mongoose": "^5.2.12",
+    "shortid": "^2.2.13",
+    "vision": "^5.4.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.4"
+  }
 }

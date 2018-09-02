@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<%include partials/header%>
+
+  <body class="landing_body">
+    <h1 class="landing_header">bSocial</h1>
+    <div id="signup_div">
+      <form id="signup_form">
+        <h2>Sign Up&nbsp</h2>
+        <input type="text" id="name" name="name" placeholder="Name">
+        <input type="email" id="email" name="email" placeholder="Email Address">
+        <input type="password" id="password" name="password" placeholder="Password">
+        <input type="button" id="signup_user" value="Sign Up">
+      </form>
+    </div>
+    <div id="login_div">
+      <form id="login_form">
+        <h2>Sign In</h2>
+        <input type="email" id="user_email" name="email" placeholder="Email Address">
+        <input type="password" id="user_password" name="password" placeholder="Password">
+        <input type="button" id="login_user" value="Login">
+      </form>
+    </div>
+  </body>
+
+  <script>
+    $("#signup_user").on("click", () => {
+      $.ajax({
+        method: "POST",
+        url: "/signup",
+        data: $("#signup_form").serialize(),
+        error: () => {
+          $("#name, #email, #password").val("");
+        }
+      });
+    });
+
+    $("#login_user").on("click", () => {
+      $.ajax({
+        method: "POST",
+        url: "/login",
+        data: $("#login_form").serialize(),
+        error: (err) => {
+          console.log(err);
+        }
+      });
+    });
+  </script>
+
+</html>
